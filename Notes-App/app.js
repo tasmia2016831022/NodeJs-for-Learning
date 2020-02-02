@@ -1,3 +1,5 @@
-const fs = require('fs');
+const name = require('./notes.js');
 
-fs.writeFileSync('notes.txt', 'This is file is created by node js');
+//const sum = add(5,2);
+
+console.log(name);
