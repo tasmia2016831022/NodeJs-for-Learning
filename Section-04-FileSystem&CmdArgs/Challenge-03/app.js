@@ -9,6 +9,7 @@ const user = JSON.parse(dataJSON);
 // Change data property
  user.name = 'Simon';
  user.age = 40;
+ user.place = "warren"
 
  //Stringify and overwrite 
 
