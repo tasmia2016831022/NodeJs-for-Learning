@@ -1,5 +1,9 @@
-const name = require('./notes.js');
+const validator = require('validator');
+const chalk = require('chalk');
 
-//const sum = add(5,2);
 
-console.log(name);
+
+
+console.log(validator.isEmail('abcmail.com'));
+console.log(chalk.green("Success!!"));
+
