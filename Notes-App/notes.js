@@ -44,9 +44,20 @@ const removeNote = title => {
 
 const listNotes = () => loadNotes().map(note => note.title);
 
+const readNote = title => {
+  const result = loadNotes().find(note => note.title === title);
+  if (!result) {
+    console.log(chalk.bold.red("Not found"));
+  } else {
+    console.log(chalk.bold.blue(result.title));
+    console.log(result.body);
+  }
+};
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
   removeNote: removeNote,
-  listNotes: listNotes
+  listNotes: listNotes,
+  readNote: readNote
 };
