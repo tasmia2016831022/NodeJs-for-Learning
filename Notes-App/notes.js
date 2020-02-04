@@ -1,4 +1,5 @@
 const fs = require('fs');
+const chalk = require('chalk');
 const getNotes = function(){
 
 }
@@ -40,17 +41,16 @@ const loadNotes = function(){
 }
 
 const removeNote = function(title){
-  console.log('remove note func!' + title);
   const notes = loadNotes();
   const matchNotes = notes.filter((note)=>{
       return note.title === title;
   })
   if(matchNotes.length === 0){
-      console.log("Not exist");
+      console.log(chalk.red("Not exist"));
   }else{
       notes.splice(notes.indexOf(matchNotes[0]),1);
       saveNotes(notes);
-      console.log("Note deleted");
+      console.log(chalk.green("Note deleted " + title));
   }
 }
 
