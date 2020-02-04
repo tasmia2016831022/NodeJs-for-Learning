@@ -1,12 +1,13 @@
 const fs = require("fs");
 const chalk = require("chalk");
+
 const getNotes = function() {};
 
 const addNote = (title, body) => {
   const notes = loadNotes();
-  const duplicateNotes = notes.filter(note => note.title === title);
+  const duplicateNote = notes.find(note => note.title === title);
 
-  if (duplicateNotes.length === 0) {
+  if (!duplicateNote) {
     notes.push({
       title: title,
       body: body
@@ -29,7 +30,7 @@ const loadNotes = () => {
   }
 };
 
-const removeNote = function(title) {
+const removeNote = title => {
   const notes = loadNotes();
   const matchNotes = notes.filter(note => note.title === title);
   if (matchNotes.length === 0) {
@@ -41,8 +42,11 @@ const removeNote = function(title) {
   }
 };
 
+const listNotes = () => loadNotes().map(note => note.title);
+
 module.exports = {
   getNotes: getNotes,
   addNote: addNote,
-  removeNote: removeNote
+  removeNote: removeNote,
+  listNotes: listNotes
 };
