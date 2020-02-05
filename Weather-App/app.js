@@ -1,4 +1,5 @@
 const request = require('request');
+const chalk = require('chalk');
 
 const url = 'https://api.darksky.net/forecast/be80abcef967d716159ce841ccb5516f/23.7,90.36667?lang=bn';
 
@@ -8,6 +9,8 @@ request({
 } , (error, response) => {
     if(error){
         console.log(error);
+    }else if(response.body.error){
+        console.log(response.body.error);
     }else{
         const temperature = response.body.currently.temperature;
         const percentage = (response.body.currently.precipProbability) * 100;
@@ -28,6 +31,8 @@ request({
 },(error, response) =>{
     if(error){
         console.log(error);
+    }else if(response.body.message){
+        console.log(chalk.red(response.body.message));
     }else{
         const location = response.body.query.join(' ');
         const lat = response.body.features[0].center[0];
