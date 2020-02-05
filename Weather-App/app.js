@@ -1,7 +1,8 @@
 const request = require('request');
 const chalk = require('chalk');
+const token = require('./tokens');
 
-const url = 'https://api.darksky.net/forecast/be80abcef967d716159ce841ccb5516f/23.7,90.36667?lang=bn';
+const url = `https://api.darksky.net/forecast/${token.darkSkyT}/23.7,90.36667?lang=bn`;
 
 request({
     url: url,
@@ -20,10 +21,9 @@ request({
     }
 })
 
-const mapboxAT = `pk.eyJ1IjoidGFzbWlhIiwiYSI6ImNrNjd3MWVrdzBnY2Qza284cjI3bmFpMGsifQ.zrWV1-nUyqizb5yZc2YWBQ`;
 const endpoint = `Dhaka`;
 const limit = 1;
-const mapurl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${endpoint}.json?access_token=${mapboxAT}&limit=${limit}`;
+const mapurl = `https://api.mapbox.com/geocoding/v5/mapbox.places/${endpoint}.json?access_token=${token.MapBoxAT}&limit=${limit}`;
 
 request({
     url: mapurl,
@@ -41,5 +41,3 @@ request({
         console.log(`${location} is at latitude: ${lat} and longitude: ${long}`);
     }
 })
-
-
