@@ -18,7 +18,7 @@ const forecast = (lat,long, callback) => {
             callback(undefined,{
              temperature: response.body.currently.temperature,
              percentage: (response.body.currently.precipProbability) * 100,
-             precipType: response.body.currently.precipType,
+             precipType: response.body.currently.precipType, ///this data can be unavailable sometimes , depends on currently property
              summary: response.body.daily.data[0].summary,
              timezone: response.body.timezone
             })
