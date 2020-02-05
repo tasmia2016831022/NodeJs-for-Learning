@@ -10,9 +10,9 @@ const geocode = (endpoint, callback) => {
         json: true
     }, (error,response) => {
         if(error){
-            console.log(error);
+            callback(error,undefined);
         }else if(response.body.message){
-            console.log(chalk.red(response.body.message));
+           callback(response.body.message, undefined);
         }else{
             callback(undefined,{
                 latitude: response.body.features[0].center[0],

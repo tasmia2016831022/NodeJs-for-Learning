@@ -2,6 +2,7 @@ const request = require('request');
 const chalk = require('chalk');
 const token = require('./utils/tokens');
 const geocode = require('./utils/geocode.js');
+const forecast = require('./utils/forecast.js');
 
 // const url = `https://api.darksky.net/forecast/${token.darkSkyT}/23.7,90.36667?lang=bn`;
 
@@ -50,3 +51,9 @@ geocode('Dhaka',(error,data) => {
     console.log(`Error`,error);
     console.log(`Data`,data);
 });
+
+
+forecast(-75.7088, 44.1545, (error, data) => {
+    console.log('Error', error)
+    console.log('Data', data)
+  })
