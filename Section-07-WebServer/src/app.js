@@ -1,23 +1,27 @@
 const express = require('express');
 const geocode = require('../../Weather-App/utils/geocode');
 const forecast = require('../../Weather-App/utils/forecast');
+const path = require('path');
 
 const app = express();
+const publicDirectoryPath = path.join(__dirname,'../public');
 
-app.get('', (req, res) => {
-    res.send('Hello express');
-});
+app.use(express.static(publicDirectoryPath));
 
-app.get('/help',(req,res) => {
-   res.send({
-       name: "Arya",
-       age : 21
-   }); 
-});
+// app.get('', (req, res) => {
+//     res.send('Hello express');
+// });
 
-app.get('/about',(req,res)=>{
-    res.send('<h1 align = "center"> About Page </h1>');
-});
+// app.get('/help',(req,res) => {
+//    res.send({
+//        name: "Arya",
+//        age : 21
+//    }); 
+// });
+
+// app.get('/about',(req,res)=>{
+//     res.send('<h1 align = "center"> About Page </h1>');
+// });
 
 // app.get('/weather',(req,res) => {
 //     res.send(
