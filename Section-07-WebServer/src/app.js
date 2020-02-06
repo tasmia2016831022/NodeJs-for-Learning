@@ -9,9 +9,12 @@ const publicDirectoryPath = path.join(__dirname,'../public');
 app.set('view engine', 'hbs')
 app.use(express.static(publicDirectoryPath));
 
-// app.get('', (req, res) => {
-//     res.send('Hello express');
-// });
+app.get('', (req, res) => {
+    res.render('index',{
+        title: 'Weather App',
+        name: 'Linuxz'
+    });
+});
 
 // app.get('/help',(req,res) => {
 //    res.send({
@@ -20,9 +23,12 @@ app.use(express.static(publicDirectoryPath));
 //    }); 
 // });
 
-// app.get('/about',(req,res)=>{
-//     res.send('<h1 align = "center"> About Page </h1>');
-// });
+app.get('/about',(req,res)=>{
+    res.render('about',{
+        title: 'About Me',
+        name: 'Linuxs'
+    });
+});
 
 // app.get('/weather',(req,res) => {
 //     res.send(
