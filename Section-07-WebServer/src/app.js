@@ -30,7 +30,8 @@ app.get('', (req, res) => {
 app.get('/help',(req,res) => {
    res.render('help',{
        title: "Help Page",
-       message :'This is a help page!!'
+       message :'This is a help page!!',
+       name:'Linuss'
    }); 
 });
 
