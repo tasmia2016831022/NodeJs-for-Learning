@@ -64,6 +64,13 @@ geocode('Dhaka',(error,{latitude, longitude, location}) => {
         }
   });
 
+  app.get('/help/*',(req,res)=>{
+    res.send('Help article not found');
+})
+
+app.get('*',(req,res)=>{
+    res.send('404 Page');
+})
 
 app.listen(3000, () => {
     console.log( " Server started 3000")
