@@ -42,27 +42,33 @@ app.get('/about',(req,res)=>{
     });
 });
 
-// app.get('/weather',(req,res) => {
-//     res.send(
-//           ForecastData
-//     );
-// });
+app.get('/weather',(req,res) => {
+    if(!req.query.address){
+        return res.send({
+            error: 'You must provide an address'
+        })
+    }
+    res.send({
+        address: req.query.address
+    })
+    
+});
 
-geocode('Dhaka',(error,{latitude, longitude, location}) => {
-        if(error){
-            console.log(error);
-        }else{
-            forecast(latitude, longitude, (error, ForecastData) => {
-            if(error)return console.log(error);
+// geocode('Dhaka',(error,{latitude, longitude, location}) => {
+//         if(error){
+//             console.log(error);
+//         }else{
+//             forecast(latitude, longitude, (error, ForecastData) => {
+//             if(error)return console.log(error);
             
-                app.get('/weather',(req,res) => {
-                    res.send(
-                        ForecastData
-                    );
-                });
-            })
-        }
-  });
+//                 app.get('/weather',(req,res) => {
+//                     res.send(
+//                         ForecastData
+//                     );
+//                 });
+//             })
+//         }
+//   });
 
   app.get('/help/*',(req,res)=>{
     res.render('errorPage',{
