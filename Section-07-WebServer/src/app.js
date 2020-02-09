@@ -16,12 +16,12 @@ app.get('', (req, res) => {
     });
 });
 
-// app.get('/help',(req,res) => {
-//    res.send({
-//        name: "Arya",
-//        age : 21
-//    }); 
-// });
+app.get('/help',(req,res) => {
+   res.render('help',{
+       title: "Help Page",
+       message :'This is a help page!!'
+   }); 
+});
 
 app.get('/about',(req,res)=>{
     res.render('about',{
