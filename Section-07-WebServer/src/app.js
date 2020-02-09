@@ -2,11 +2,22 @@ const express = require('express');
 const geocode = require('../../Weather-App/utils/geocode');
 const forecast = require('../../Weather-App/utils/forecast');
 const path = require('path');
+const hbs = require('hbs');
 
 const app = express();
-const publicDirectoryPath = path.join(__dirname,'../public');
 
-app.set('view engine', 'hbs')
+/// Define paths for Express Config
+const publicDirectoryPath = path.join(__dirname,'../public');
+const viewsPath = path.join(__dirname,'../templates/views');
+const partialsPath = path.join(__dirname,'../templates/partials');
+
+/// Setup Handlebars engine and views location
+app.set('view engine', 'hbs');
+app.set('views',viewsPath);
+
+hbs.registerPartials(partialsPath);
+
+/// Setup static directory to serve
 app.use(express.static(publicDirectoryPath));
 
 app.get('', (req, res) => {
@@ -51,10 +62,6 @@ geocode('Dhaka',(error,{latitude, longitude, location}) => {
             })
         }
   });
-
-/// app.com
-/// app.com/help
-/// app/about
 
 
 app.listen(3000, () => {
