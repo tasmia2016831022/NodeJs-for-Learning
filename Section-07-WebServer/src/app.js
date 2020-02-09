@@ -65,11 +65,19 @@ geocode('Dhaka',(error,{latitude, longitude, location}) => {
   });
 
   app.get('/help/*',(req,res)=>{
-    res.send('Help article not found');
+    res.render('errorPage',{
+        title: 'Error',
+        error: "Help article not found",
+        name: 'ErLin'
+    });
 })
 
 app.get('*',(req,res)=>{
-    res.send('404 Page');
+    res.render('errorPage',{
+        title: 'Error',
+        error: "Page not found",
+        name: 'ERRLin'
+    });
 })
 
 app.listen(3000, () => {
