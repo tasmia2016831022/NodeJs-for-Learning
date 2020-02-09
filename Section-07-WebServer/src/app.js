@@ -67,8 +67,8 @@ geocode('Dhaka',(error,{latitude, longitude, location}) => {
   app.get('/help/*',(req,res)=>{
     res.render('errorPage',{
         title: 'Error',
-        error: "Help article not found",
-        name: 'ErLin'
+        error: "Help not found",
+        name: 'ERRLin'
     });
 })
 
