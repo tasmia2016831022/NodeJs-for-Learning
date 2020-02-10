@@ -1,20 +1,15 @@
 
 console.log('Client side js file loaded!!');
-     
-// fetch(`http://localhost:3000/weather?address='dhaka'`).then(response =>{
-//          response
-//          .json()
-//          .then((data) => {
-//              if(data.error){
-//                  console.log(data.error)
-//              }else{
-//                  console.log(data);
-//              }
-//          })
-//      })
 
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
+
+const loc = document.querySelector('#location');
+const temp = document.querySelector('#temperature');
+const summery = document.querySelector('#summery');
+
+loc.textContent = '';
+temp.textContent = '';
 
 weatherForm.addEventListener('submit', (e)=>{
    e.preventDefault();
@@ -28,7 +23,14 @@ weatherForm.addEventListener('submit', (e)=>{
         if(data.error){
             console.log(data.error)
         }else{
-            console.log(data.summary);
+            console.log(data);
+            loc.textContent = location;
+            temp.textContent = `Temperature: ${data.temperature}`;
+            if(data.precipType === undefined){
+                summery.textContent = `Summary: ${data.summary}`;
+            }else{
+                summery.textContent = `Summary: ${data.summary}${data.percentage}% chance of ${data.precipType}.`;
+            }
         }
     })
 })
