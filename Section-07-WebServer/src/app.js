@@ -64,22 +64,6 @@ app.get('/weather',(req,res) => {
     
 });
 
-// geocode('Dhaka',(error,{latitude, longitude, location}) => {
-//         if(error){
-//             console.log(error);
-//         }else{
-//             forecast(latitude, longitude, (error, ForecastData) => {
-//             if(error)return console.log(error);
-            
-//                 app.get('/weather',(req,res) => {
-//                     res.send(
-//                         ForecastData
-//                     );
-//                 });
-//             })
-//         }
-//   });
-
   app.get('/help/*',(req,res)=>{
     res.render('errorPage',{
         title: 'Error',
