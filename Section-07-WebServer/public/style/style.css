@@ -42,3 +42,15 @@ header a{
     text-decoration: none;
 }
 
+input{
+    border: 1px solid grey;
+    padding: 8px;
+}
+
+button{
+    cursor: pointer;
+    border: 1px solid grey;
+    background: grey;
+    color: honeydew;
+    padding: 8px;
+}

@@ -8,20 +8,22 @@ const loc = document.querySelector('#location');
 const temp = document.querySelector('#temperature');
 const summery = document.querySelector('#summery');
 
-loc.textContent = '';
-temp.textContent = '';
+// loc.textContent = '';
+// temp.textContent = '';
 
 weatherForm.addEventListener('submit', (e)=>{
    e.preventDefault();
    
    const location = search.value;
    
+   loc.textContent ="LOADING...."
+   
    fetch(`http://localhost:3000/weather?address=${location}`).then(response =>{
     response
     .json()
     .then((data) => {
         if(data.error){
-            console.log(data.error)
+            loc.textContent = 'Error occured.' + data.error;
         }else{
             console.log(data);
             loc.textContent = location;
