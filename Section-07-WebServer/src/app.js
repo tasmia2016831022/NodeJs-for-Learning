@@ -50,10 +50,10 @@ app.get('/weather',(req,res) => {
     }
     geocode(req.query.address,(error,{latitude,longitude,location} = {})=>{
         if(error){
-            return res.send(error)
+            return res.send({error})
         }else{
             forecast(latitude,longitude,(error,data)=>{
-                if(error){return res.send(error)}
+                if(error){return res.send({error})}
                 else{
                     res.send(data);
                 }
@@ -97,5 +97,5 @@ app.get('*',(req,res)=>{
 })
 
 app.listen(3000, () => {
-    console.log( " Server started 3000")
+    console.log( "Server started 3000")
 });
