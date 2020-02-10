@@ -1,6 +1,6 @@
 # NodeJs-for-Learning
 
-* Notes App
-* Weather App
+* Notes App [done]
+* Weather App [working]
 * Task App
 * Chat App
