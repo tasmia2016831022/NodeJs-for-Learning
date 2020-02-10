@@ -1,17 +1,17 @@
 
 console.log('Client side js file loaded!!');
      
-fetch(`http://localhost:3000/weather?address='dhaka'`).then(response =>{
-         response
-         .json()
-         .then((data) => {
-             if(data.error){
-                 console.log(data.error)
-             }else{
-                 console.log(data);
-             }
-         })
-     })
+// fetch(`http://localhost:3000/weather?address='dhaka'`).then(response =>{
+//          response
+//          .json()
+//          .then((data) => {
+//              if(data.error){
+//                  console.log(data.error)
+//              }else{
+//                  console.log(data);
+//              }
+//          })
+//      })
 
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
@@ -21,5 +21,15 @@ weatherForm.addEventListener('submit', (e)=>{
    
    const location = search.value;
    
-   console.log(location);
+   fetch(`http://localhost:3000/weather?address=${location}`).then(response =>{
+    response
+    .json()
+    .then((data) => {
+        if(data.error){
+            console.log(data.error)
+        }else{
+            console.log(data.summary);
+        }
+    })
+})
 })
