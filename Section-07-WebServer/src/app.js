@@ -48,12 +48,12 @@ app.get('/weather',(req,res) => {
             error: 'You must provide an address'
         })
     }
-    geocode(req.query.address,(error,{latitude,longitude,location})=>{
+    geocode(req.query.address,(error,{latitude,longitude,location} = {})=>{
         if(error){
-            return res.send(error)
+            return res.send({error})
         }else{
             forecast(latitude,longitude,(error,data)=>{
-                if(error){return res.send(error)}
+                if(error){return res.send({error})}
                 else{
                     res.send(data);
                 }
@@ -63,22 +63,6 @@ app.get('/weather',(req,res) => {
     
     
 });
-
-// geocode('Dhaka',(error,{latitude, longitude, location}) => {
-//         if(error){
-//             console.log(error);
-//         }else{
-//             forecast(latitude, longitude, (error, ForecastData) => {
-//             if(error)return console.log(error);
-            
-//                 app.get('/weather',(req,res) => {
-//                     res.send(
-//                         ForecastData
-//                     );
-//                 });
-//             })
-//         }
-//   });
 
   app.get('/help/*',(req,res)=>{
     res.render('errorPage',{
@@ -97,5 +81,5 @@ app.get('*',(req,res)=>{
 })
 
 app.listen(3000, () => {
-    console.log( " Server started 3000")
+    console.log( "Server started 3000")
 });
