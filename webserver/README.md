@@ -2,6 +2,7 @@
 webserver creation with node js ( weather app)
 
 https://tasmiapl-weather-application.herokuapp.com/
+<<<<<<< HEAD
 
 ## for running this application at your local mechine:
  ```bash
@@ -18,3 +19,5 @@ https://tasmiapl-weather-application.herokuapp.com/
  * In some cases darksky may not provide some real-time data, That may cause return "undefined" values in some cases. Such as, "Dhaka" may contain property of "precipType", but "Austin" may not. So, in that case it'll retun "undefined".
  * Mapbox api may be enabled for "cors" mode, but darksky don't.
 
+=======
+>>>>>>> f9e78fbe11b8f896b50cc8d67376d02671381ccb
