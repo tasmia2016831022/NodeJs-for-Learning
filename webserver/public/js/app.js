@@ -18,13 +18,17 @@ if(weatherForm !== null){
             const location = search.value;
             
             loc.textContent ="LOADING...."
+            temp.textContent = '';
+            summery.textContent = '';
             
-            fetch(`http://localhost:3000/weather?address=${location}`).then(response =>{
+            fetch(`/weather?address=${location}`).then(response =>{
             response
             .json()
             .then((data) => {
                 if(data.error){
                     loc.textContent = 'Error occured.' + data.error;
+                    temp.textContent = '';
+                    summery.textContent = '';
                 }else{
                     console.log(data);
                     loc.textContent = location;
